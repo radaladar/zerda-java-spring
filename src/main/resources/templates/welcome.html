@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Java Spring Exam</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+    <p>Thank you for visiting our website! To get early access to our planned projects, please fill in the following quick questionnaire.</p>
+    <p th:text="${errormessage}" style="color: red"/>
+    <form action="#" th:action="@{/submitAndValidate}" th:object="${newreview}" method="post">
+        <label for="experience">Describe your experience with Green Fox Academy so far</label>
+        <br/>
+        <textarea th:field="${newreview.experience}" name="experience" id="experience" rows="1"/>
+        <br/>
+        <label for="rating" >On a scale of 1 to 10, how likely are you to recommend Green Fox Academy to a friend?</label>
+        <br/>
+        <input th:field="${newreview.rating}" name="rating" id="rating" type="number" min="1" max="10"/>
+        <br/>
+        <label for="email">Your email address:</label>
+        <br/>
+        <input th:field="${newreview.email}" name="email" id="email" type="email"/>
+        <br/>
+        <button type="submit" value="submit" id="submit">Submit</button>
+    </form>
+</body>
+</html>
